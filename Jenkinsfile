@@ -33,7 +33,9 @@ pipeline {
             }
             steps {
                 sh '''
-                cd /home/ec2-user/workspace/k8/
+                cd /home/ec2-user/
+                git init
+                git pull https://github.com/Shivampandhare/jenkins-demo-1.git master
                 sudo kubectl apply -f deploy.yaml
                 '''
             }

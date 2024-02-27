@@ -22,18 +22,19 @@ pipeline {
                 sh '''
                     cd /home/ubuntu/workspace/k8/
                     sudo docker login
-                    sudo docker build -t avi087/jentom:latest -f Dockerfile .
-                    sudo docker push avi087/jentom:latest
+                    sudo docker build -t shivampandhare/jentom:latest -f Dockerfile .
+                    sudo docker push shivampandhare/jentom:latest
                 '''
             }
         }
         stage('deploy') {
             agent {
-                label 'mvn'
+                label 'kube'
             }
             steps {
                 sh '''
-                sudo kubectl apply -f /home/ubuntu/workspace/k8/deploy.yaml
+                cd /home/ec2-user/workspace/k8/
+                sudo kubectl apply -f deploy.yaml
                 '''
             }
         }

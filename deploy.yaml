@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: tomcat
-        image: avi087/jentom:latest
+        image: shivampandhare/jentom:latest
         ports:
         - containerPort: 8080
 ...

@@ -33,6 +33,7 @@ pipeline {
             }
             steps {
                 sh '''
+                sudo -i
                 cd /home/ec2-user/
                 git init
                 git pull https://github.com/Shivampandhare/jenkins-demo-1.git master
